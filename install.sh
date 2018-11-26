@@ -1,10 +1,11 @@
 #!/bin/sh
 
-pushd $(cd $(dirname $0); pwd)
+DIR="$(cd $(dirname $0); pwd)"
+pushd $DIR
 
 for f in .??*; do
   [ "$f" = ".git" ] && continue
-  ln -snfv ~/dotfiles/"$f" ~/
+  ln -snfv "$DIR/$f" ~/
 done
 
 popd
