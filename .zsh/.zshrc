@@ -38,6 +38,10 @@ RPROMPT=$'%{\e[32m%}[%~]%{\e[m%}'
 # -------------------------------------------------------------
 # 補完
 
+# コマンドのオプション、引数を補完
+autoload -Uz compinit; compinit -i
+
+zstyle ':completion::complete:*' use-cache true
 # 小文字でも大文字の候補を出す
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # aliasも候補に出す
@@ -58,9 +62,6 @@ bindkey '^x^p' predict-off
 zstyle ':predict' verbose true
 # コマンド編集時は予測OFF
 zstyle ':predict' toggle true
-
-# コマンドのオプション、引数を補完
-autoload -Uz compinit; compinit -i
 
 # -------------------------------------------------------------
 # 色
